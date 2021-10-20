@@ -1,14 +1,13 @@
 let myLinks=[];
 let oldLinks=[];
-/*Grab html elements and store in variables*/
 const inputEl=document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEl =document.getElementById('ul-el');
 const deleteBtn = document.getElementById("delete-btn");
-
 const linksFromLocalStorage = JSON.parse(localStorage.getItem("myLinks"))
+
 if(linksFromLocalStorage){
-    myLinks =linksFromLocalStorage
+    myLinks =linksFromLocalStorage;
     render(myLinks);
 }
 
@@ -32,13 +31,15 @@ function render(links){
         // ulEl.append();   
     }
     ulEl.innerHTML= listItems; 
-}
+};
+
 /*delete all button*/
 deleteBtn.addEventListener("dblclick", function(){
     localStorage.clear();
     myLinks =[];  
     render(myLinks);
-})
+});
+
 /*Save input button*/
 inputBtn.addEventListener("click", function(){
     myLinks.push(inputEl.value);
